@@ -1,0 +1,10 @@
+.navbar__logout-button {
+	border: none;
+	padding: 0;
+	background: black;
+	color: #A9A9A9;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 22px;
+	outline: 0;
+}

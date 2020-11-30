@@ -1,0 +1,34 @@
+.profile__avatar-wrapper {
+  display: block;
+  position: relative;
+}
+
+.profile__avatar-wrapper:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .8);
+  opacity: 0;
+}
+
+.profile__avatar-wrapper:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../../../images/editAvatar.svg);
+  opacity: 0;
+  background-repeat: no-repeat;
+  z-index: 2;
+  background-position: center;
+}
+
+.profile__avatar-wrapper:hover:before,
+.profile__avatar-wrapper:hover:after {
+  opacity: 1;
+}

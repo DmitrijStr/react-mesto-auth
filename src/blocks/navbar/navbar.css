@@ -1,0 +1,8 @@
+@import url(./__email/navbar__email.css);
+@import url(./__logout-button/navbar__logout-button.css);
+
+.navbar {
+	display: flex;
+	align-items: baseline;
+	margin-top: 6px;
+}

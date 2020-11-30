@@ -1,0 +1,7 @@
+.hover-button:hover {
+  opacity: .8;
+}
+
+.hover-button:focus{
+  outline:0;
+}

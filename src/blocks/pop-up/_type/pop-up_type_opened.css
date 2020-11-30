@@ -1,0 +1,6 @@
+.pop-up_type_opened {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: .5s linear;
+}

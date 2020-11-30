@@ -1,0 +1,14 @@
+.photo-grid__trash-button {
+  background-image: url(../../../images/Trash.svg);
+  width: 18px;
+  height: 19.3px;
+  background-repeat: no-repeat;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  z-index: 2;
+  visibility: visible;
+}

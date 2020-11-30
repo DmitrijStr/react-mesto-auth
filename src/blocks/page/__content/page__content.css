@@ -1,0 +1,19 @@
+.page__content {
+  min-width: 300px;
+  max-width: 882px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px){
+  .page__content {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .page__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
