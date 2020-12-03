@@ -4,28 +4,27 @@ class Api {
 		this._headers = options.headers;
 	}
 
-	_getResponseData() {
-		return res => {
-			if (res.ok) {
-				return res.json();
-			}
-			return Promise.reject(new Error(`Ошибка: ${res.status}`))
-				.then((result) => {
-					return result
-				})
+	_getResponseData(res) {
+		if (res.ok) {
+			return res.json();
 		}
+		return Promise.reject(new Error(`Ошибка: ${res.status}`))
+			.then((result) => {
+				return result
+			})
 	}
 
 	getInitialCards() {
 		return fetch(`${this._baseUrl}/cards`, {
 			headers: this._headers
-		}).then(this._getResponseData())
+		}).then(this._getResponseData)
 	}
 
 	getUserInfo() {
 		return fetch(`${this._baseUrl}/users/me`, {
 			headers: this._headers
-		}).then(this._getResponseData())
+		})
+		.then(this._getResponseData)
 	}
 
 	postCard(newCard) {
@@ -36,14 +35,14 @@ class Api {
 				name: newCard.name,
 				link: newCard.link
 			})
-		}).then(this._getResponseData())
+		}).then(this._getResponseData)
 	}
 
 	deleteCard(id) {
 		return fetch(`${this._baseUrl}/cards/${id}`, {
 			method: 'DELETE',
 			headers: this._headers
-		}).then(this._getResponseData())
+		}).then(this._getResponseData)
 	}
 
 	patchUserInfo(newData) {
@@ -54,7 +53,7 @@ class Api {
 				name: newData.name,
 				about: newData.about
 			})
-		}).then(this._getResponseData())
+		}).then(this._getResponseData)
 	}
 
 	patchAvatar(newData) {
@@ -64,7 +63,7 @@ class Api {
 			body: JSON.stringify({
 				avatar: newData.avatar
 			})
-		}).then(this._getResponseData())
+		}).then(this._getResponseData)
 	}
 
 	putLike(id) {
@@ -72,10 +71,7 @@ class Api {
 			method: 'PUT',
 			headers: this._headers
 		})
-			.then(this._getResponseData())
-			// .then((data) => {
-			// 	return (data.likes.length)
-			// })
+			.then(this._getResponseData)
 	}
 
 	removeLike(id) {
@@ -83,10 +79,7 @@ class Api {
 			method: 'DELETE',
 			headers: this._headers
 		})
-			.then(this._getResponseData())
-			// .then((data) => {
-			// 	return (data.likes.length)
-			// })
+			.then(this._getResponseData)
 	}
 }
 

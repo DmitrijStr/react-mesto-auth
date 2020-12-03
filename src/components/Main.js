@@ -4,12 +4,8 @@ import plusButtonPath from '../images/plus.svg';
 import Card from './Card'
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Main(props) {
-
-  const { onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardDelete, onCardLike, onCardDislike } = props;
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardDelete, onCardLike, onCardDislike }) {
   const currentUser = React.useContext(CurrentUserContext);
-
-
 
   return (
     <main className="content">

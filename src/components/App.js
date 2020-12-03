@@ -184,7 +184,6 @@ function App() {
           open: true
         })
       })
-
   }
 
   const tokenCheck = () => {
@@ -199,7 +198,10 @@ function App() {
             setLoggedIn(true)
             history.push('/')
           }
-        }).catch(err => console.error(err))
+        }).catch(err => {
+          localStorage.removeItem('jwt')
+          console.error(err)
+        })
     }
   }
 

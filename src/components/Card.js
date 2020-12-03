@@ -1,30 +1,29 @@
 import React from 'react'
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import classNames from 'classnames'
 
-function Card(props) {
-
-	const { card, link, name, likes } = props;
+function Card({ card, link, name, likes, onCardClick, onCardDelete, onCardLike, onCardDislike }) {
 	const currentUser = React.useContext(CurrentUserContext);
 	const isOwnCard = card.owner._id === currentUser._id;
 	const isLiked = card.likes.some(i => i._id === currentUser._id);
-	const cardLikeButtonClassName = (
-		`photo-grid__like-button hover-button ${isLiked ? 'photo-grid__like-button_type_active' : ''}`
-	);
+	const cardLikeButtonClassName = classNames('photo-grid__like-button', 'hover-button', {
+		'photo-grid__like-button_type_active': isLiked
+	});
 
 	function handleClick() {
-		props.onCardClick(card);
+		onCardClick(card);
 	}
 
 	function handleDeleteClick() {
-		props.onCardDelete(card._id);
+		onCardDelete(card._id);
 	}
 
 	function handleCardLike() {
-		props.onCardLike(card._id);
+		onCardLike(card._id);
 	}
 
 	function handleCardDislike() {
-		props.onCardDislike(card._id);
+		onCardDislike(card._id);
 	}
 
 	return (

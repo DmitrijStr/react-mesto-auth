@@ -1,11 +1,8 @@
 import React from 'react';
 
-function PopupWithForm(props) {
+function PopupWithForm({ name, isOpen, onClose, title, children, onSubmit }) {
 
-	const { name, isOpen, onClose, title, children, onSubmit } = props;
-	
 	return (
-		
 		<section className={`pop-up popup_type_${name} ${isOpen && 'pop-up_type_opened'}`} >
 			<div className="pop-up__container">
 				<button className="pop-up__btn pop-up__btn_action_deny hover-button" type="button" onClick={onClose}>
